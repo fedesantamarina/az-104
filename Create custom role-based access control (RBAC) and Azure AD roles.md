@@ -30,7 +30,7 @@ La creación de roles personalizados es vital cuando los roles predefinidos no s
 
 ```mermaid
 graph TD;
-  A[Creación de roles personalizados en RBAC] --> B[¿Por qué es necesario?]
+  A[Creación de roles personalizados en RBAC] --> B[Por qué es necesario]
   B --> C[Roles predefinidos]
   B --> D[Control Granular]
 ```
