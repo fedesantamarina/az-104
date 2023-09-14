@@ -70,7 +70,7 @@ Al igual que con RBAC, la personalización de roles en Azure AD es crucial para 
 
 ```mermaid
 graph TD;
-  A[Creación de roles personalizados en Azure AD] --> B[¿Por qué es necesario?]
+  A[Creación de roles personalizados en Azure AD] --> B[Por qué es necesario]
   B --> C[Gestión de Identidades]
   B --> D[Accesos]
 ```
