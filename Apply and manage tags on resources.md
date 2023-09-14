@@ -18,7 +18,7 @@ Las etiquetas son pares de clave-valor asignados a recursos para mejorar la admi
 
 ```mermaid
 graph TD;
-  A[¿Qué son las etiquetas?] --> B[Pares clave-valor]
+  A[Qué son las etiquetas] --> B[Pares clave-valor]
   B --> C[Propósito]
   C --> D[Tipo de recursos compatibles]
 ```
