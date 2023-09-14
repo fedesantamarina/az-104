@@ -12,9 +12,9 @@ graph TD
 
 ```mermaid
 graph TD
-  [Importancia de Licencias] --> [Relevancia de tener licencias apropiadas para usuarios]
-  [Control de recursos] --> [Capacidad para asignar y desasignar recursos en Azure]
-  [Acceso a características] --> [Permite el acceso a funcionalidades específicas en Azure]
+  "Importancia de Licencias" --> "Relevancia de tener licencias apropiadas para usuarios"
+  "Control de recursos" --> "Capacidad para asignar y desasignar recursos en Azure"
+  "Acceso a características" --> "Permite el acceso a funcionalidades específicas en Azure"
 ```
 
 ### Tipos de Licencias
