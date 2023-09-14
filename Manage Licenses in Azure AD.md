@@ -10,12 +10,11 @@ graph TD
   B --> D[Acceso a características]
 ```
 
-**Glosario en Mermaid**
 ```mermaid
 graph TD
-  Importancia de Licencias --> "Relevancia de tener licencias apropiadas para usuarios"
-  Control de recursos --> "Capacidad para asignar y desasignar recursos en Azure"
-  Acceso a características --> "Permite el acceso a funcionalidades específicas en Azure"
+  "Importancia de Licencias" --> "Relevancia de tener licencias apropiadas para usuarios"
+  "Control de recursos" --> "Capacidad para asignar y desasignar recursos en Azure"
+  "Acceso a características" --> "Permite el acceso a funcionalidades específicas en Azure"
 ```
 
 ### Tipos de Licencias
@@ -35,12 +34,11 @@ graph TD
 Get-AzureADSubscribedSku
 ```
 
-**Glosario en Mermaid**
 ```mermaid
 graph TD
-  P1 --> "Licencia Premium con funcionalidades extendidas"
-  P2 --> "Licencia Premium con todas las capacidades"
-  Licencias Gratuitas --> "Funcionalidades básicas sin costo"
+  "P1" --> "Licencia Premium con funcionalidades extendidas"
+  "P2" --> "Licencia Premium con todas las capacidades"
+  "Licencias Gratuitas" --> "Funcionalidades básicas sin costo"
 ```
 
 ### Asignación de Licencias
@@ -61,13 +59,12 @@ graph TD
 Set-AzureADUserLicense -ObjectId <UserObjectID> -AssignedLicenses $assignedLicenses
 ```
 
-**Glosario en Mermaid**
 ```mermaid
 graph TD
-  Individual --> "Asignar licencia a un único usuario"
-  A través de Grupos --> "Asignar licencias a múltiples usuarios mediante grupos"
-  Portal de Azure --> "Interfaz gráfica para administrar Azure"
-  PowerShell --> "Lenguaje de script para la administración de Azure"
+  "Individual" --> "Asignar licencia a un único usuario"
+  "A través de Grupos" --> "Asignar licencias a múltiples usuarios mediante grupos"
+  "Portal de Azure" --> "Interfaz gráfica para administrar Azure"
+  "PowerShell" --> "Lenguaje de script para la administración de Azure"
 ```
 
 ### Desasignación de Licencias
@@ -86,11 +83,10 @@ graph TD
 Set-AzureADUserLicense -ObjectId <UserObjectID> -RemoveLicenses $licenseToRemove
 ```
 
-**Glosario en Mermaid**
 ```mermaid
 graph TD
-  Portal de Azure --> "Interfaz gráfica para administrar Azure"
-  PowerShell --> "Lenguaje de script para desasignar licencias"
+  "Portal de Azure" --> "Interfaz gráfica para administrar Azure"
+  "PowerShell" --> "Lenguaje de script para desasignar licencias"
 ```
 
 ### Cuadro Sinóptico
@@ -115,10 +111,9 @@ graph TD
   A --> D[Gestión Manual]
 ```
 
-**Glosario en Mermaid**
 ```mermaid
 graph TD
-  Políticas de licencias automáticas --> "Asignar licencias basadas en condiciones"
-  Azure AD Groups --> "Usar grupos para asignación masiva"
-  Gestión Manual --> "Asignación y desasignación individual"
+  "Políticas de licencias automáticas" --> "Asignar licencias basadas en condiciones"
+  "Azure AD Groups" --> "Usar grupos para asignación masiva"
+  "Gestión Manual" --> "Asignación y desasignación individual"
 ```
