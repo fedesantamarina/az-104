@@ -1,119 +1,87 @@
-## Manage Licenses in Azure AD
+### Manage licenses in Azure AD
 
-### Introducción
-Azure Active Directory (Azure AD) proporciona diversas opciones para gestionar licencias de usuario. La administración de licencias en Azure AD no solo es esencial para controlar los recursos y las capacidades, sino que también permite el acceso a características específicas dentro de los servicios de Azure.
+El manejo de licencias en Azure Active Directory (Azure AD) es un aspecto fundamental en la administración de identidades y gobernanza en la nube de Microsoft Azure. Este tema abarca desde cómo asignar licencias a los usuarios hasta la automatización de este proceso mediante Azure AD Group-based licensing. Vamos a desglosar los elementos clave para que comprendas mejor cada aspecto.
 
-```mermaid
-graph TD
-  A[Introducción] --> B[Importancia de Licencias en Azure AD]
-  B --> C[Control de recursos]
-  B --> D[Acceso a características]
-```
+#### Asignar Licencias a Usuarios Manualmente
+
+Para asignar licencias a usuarios de manera manual, primero es necesario ir al portal de Azure y navegar hasta `Azure Active Directory` > `Licencias` > `Todas las licencias`. Desde aquí, puedes seleccionar el usuario y la licencia correspondiente.
 
 ```mermaid
-graph TD
-  "Importancia de Licencias" --> "Relevancia de tener licencias apropiadas para usuarios"
-  "Control de recursos" --> "Capacidad para asignar y desasignar recursos en Azure"
-  "Acceso a características" --> "Permite el acceso a funcionalidades específicas en Azure"
+graph TD;
+  A[Portal de Azure] --> B[Azure Active Directory]
+  B --> C[Licencias]
+  C --> D[Todas las licencias]
+  D --> E[Seleccionar Usuario]
+  E --> F[Asignar Licencia]
 ```
 
-### Tipos de Licencias
+| Término                    | Definición                                                   |
+|----------------------------|--------------------------------------------------------------|
+| Portal de Azure            | Interfaz web para gestionar recursos de Azure.               |
+| Azure Active Directory     | Servicio de gestión de identidades en la nube de Microsoft.  |
+| Licencias                  | Sección donde se manejan las licencias en Azure AD.          |
+| Todas las licencias        | Lista de todas las licencias disponibles.                    |
+| Seleccionar Usuario        | Acción de escoger un usuario específico.                     |
+| Asignar Licencia           | Acción de añadir una licencia a un usuario seleccionado.     |
 
-Azure AD ofrece varios tipos de licencias como P1, P2, y licencias gratuitas. Cada tipo de licencia proporciona un conjunto diferente de capacidades y características.
+#### Automatización con Group-based Licensing
+
+Si tienes un gran número de usuarios, la asignación manual de licencias puede no ser práctica. En este caso, puedes utilizar Azure AD Group-based licensing para automatizar el proceso.
 
 ```mermaid
-graph TD
-  A[Tipos de Licencias] --> B[P1]
-  A --> C[P2]
-  A --> D[Licencias Gratuitas]
+graph TD;
+  A[Azure AD Group-based licensing] --> B[Crear/Seleccionar Grupo]
+  B --> C[Asignar Licencias al Grupo]
+  C --> D[Usuarios reciben licencias automáticamente]
 ```
 
-**Código de Ejemplo**
+| Término                           | Definición                                               |
+|-----------------------------------|----------------------------------------------------------|
+| Azure AD Group-based licensing    | Característica para asignar licencias a grupos de usuarios. |
+| Crear/Seleccionar Grupo           | Acción de crear o seleccionar un grupo existente en Azure AD. |
+| Asignar Licencias al Grupo        | Acción de asignar una o más licencias al grupo seleccionado. |
+| Usuarios reciben licencias automáticamente | Resultado de la asignación de licencias mediante un grupo. |
+
+##### Código de Ejemplo para Automatización
+
 ```powershell
-# Listar todas las licencias disponibles en Azure AD
-Get-AzureADSubscribedSku
+# Crear un nuevo grupo en Azure AD
+New-AzureADGroup -DisplayName "LicenciaGrupo" -MailEnabled $false -SecurityEnabled $true -MailNickName "NoEmail"
+
+# Asignar una licencia al grupo
+$group = Get-AzureADGroup -SearchString "LicenciaGrupo"
+$license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
+$license.SkuId = (Get-AzureADSubscribedSku | Where-Object -Property SkuPartNumber -Value "ENTERPRISEPACK" -EQ).ObjectId
+Set-AzureADGroup -ObjectId $group.ObjectId -AssignedLicenses $license
 ```
+
+#### Alternativas y Opciones
+
+- **Licencias de autoservicio**: Permite que los usuarios se asignen licencias ellos mismos.
+- **Licencias heredadas de una organización matriz**: Si tu organización forma parte de una más grande, puedes heredar licencias.
+- **Uso de políticas de Azure AD**: Puedes establecer políticas para asignar licencias automáticamente según ciertos criterios.
 
 ```mermaid
-graph TD
-  "P1" --> "Licencia Premium con funcionalidades extendidas"
-  "P2" --> "Licencia Premium con todas las capacidades"
-  "Licencias Gratuitas" --> "Funcionalidades básicas sin costo"
+graph TD;
+  A[Alternativas y Opciones] --> B[Licencias de autoservicio]
+  A --> C[Licencias heredadas]
+  A --> D[Uso de políticas de Azure AD]
 ```
 
-### Asignación de Licencias
-
-Azure AD permite asignar licencias a usuarios de forma individual o a través de grupos. Esta asignación se puede realizar a través del portal de Azure o mediante PowerShell.
-
-```mermaid
-graph TD
-  A[Asignación de Licencias] --> B[Individual]
-  A --> C[A través de Grupos]
-  B --> D[Portal de Azure]
-  C --> E[PowerShell]
-```
-
-**Código de Ejemplo**
-```powershell
-# Asignar una licencia a un usuario específico en Azure AD
-Set-AzureADUserLicense -ObjectId <UserObjectID> -AssignedLicenses $assignedLicenses
-```
-
-```mermaid
-graph TD
-  "Individual" --> "Asignar licencia a un único usuario"
-  "A través de Grupos" --> "Asignar licencias a múltiples usuarios mediante grupos"
-  "Portal de Azure" --> "Interfaz gráfica para administrar Azure"
-  "PowerShell" --> "Lenguaje de script para la administración de Azure"
-```
-
-### Desasignación de Licencias
-
-De manera similar a la asignación, las licencias también pueden ser desasignadas. La desasignación ayuda a liberar licencias no utilizadas y a redistribuir recursos.
-
-```mermaid
-graph TD
-  A[Desasignación de Licencias] --> B[Portal de Azure]
-  A --> C[PowerShell]
-```
-
-**Código de Ejemplo**
-```powershell
-# Desasignar una licencia de un usuario específico
-Set-AzureADUserLicense -ObjectId <UserObjectID> -RemoveLicenses $licenseToRemove
-```
-
-```mermaid
-graph TD
-  "Portal de Azure" --> "Interfaz gráfica para administrar Azure"
-  "PowerShell" --> "Lenguaje de script para desasignar licencias"
-```
+| Término                     | Definición                                               |
+|-----------------------------|----------------------------------------------------------|
+| Alternativas y Opciones     | Diferentes maneras de manejar licencias en Azure AD.      |
+| Licencias de autoservicio   | Opción para que los usuarios se asignen sus propias licencias. |
+| Licencias heredadas         | Licencias que se obtienen a través de una organización matriz. |
+| Uso de políticas de Azure AD | Establecimiento de reglas para asignar licencias automáticamente. |
 
 ### Cuadro Sinóptico
 
-| Sección                 | Detalle                                        |
-|------------------------|------------------------------------------------|
-| Introducción            | Importancia de la administración de licencias  |
-| Tipos de Licencias      | P1, P2, Licencias Gratuitas                    |
-| Asignación de Licencias | Individual, A través de Grupos                 |
-| Desasignación           | Portal de Azure, PowerShell                    |
+| Aspecto                              | Método Manual                | Automatización               | Alternativas                  |
+|--------------------------------------|-----------------------------|------------------------------|-------------------------------|
+| **Acción Inicial**                   | Navegar hasta licencias     | Crear/Seleccionar Grupo      | Elegir entre opciones         |
+| **Pasos Intermedios**                | Seleccionar Usuario         | Asignar Licencias al Grupo   | Dependiendo de la alternativa |
+| **Resultado**                        | Usuario recibe licencia     | Usuarios reciben automáticamente| Varía                        |
+| **Código de Ejemplo**                 | No aplica                   | PowerShell                   | Dependiendo de la alternativa |
 
-### Posibles Alternativas
-
-1. Uso de políticas de licencias automáticas: Permiten asignar licencias basadas en condiciones específicas.
-2. Azure AD Groups: Usar grupos de Azure AD para asignar licencias a múltiples usuarios al mismo tiempo.
-3. Gestión manual: La asignación y desasignación manual de licencias a través del portal.
-
-```mermaid
-graph TD
-  A[Posibles Alternativas] --> B[Políticas de licencias automáticas]
-  A --> C[Azure AD Groups]
-  A --> D[Gestión Manual]
-```
-
-```mermaid
-graph TD
-  "Políticas de licencias automáticas" --> "Asignar licencias basadas en condiciones"
-  "Azure AD Groups" --> "Usar grupos para asignación masiva"
-  "Gestión Manual" --> "Asignación y desasignación individual"
-```
+Espero que esta explicación te ayude a entender cómo manejar las licencias en Azure AD de una manera más efectiva y eficiente.
