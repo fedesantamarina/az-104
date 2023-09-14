@@ -38,8 +38,8 @@ New-AzureADUser -DisplayName "John Doe" -PasswordProfile $passwordProfile -UserP
 
 ```mermaid
 graph TD;
-  A1 --> B2[Roles y Permisos]
-  B2 --> C1[Asignación de Roles]
+  
+  B2[Roles y Permisos] --> C1[Asignación de Roles]
   B2 --> C2[Permisos]
 ```
 
@@ -76,8 +76,7 @@ New-AzureADGroup -DisplayName "SecurityGroup1" -SecurityEnabled $true -MailEnabl
 
 ```mermaid
 graph TD;
-  A2 --> B2[Gestión de Miembros]
-  B2 --> C1[Añadir Miembros]
+  B2[Gestión de Miembros] --> C1[Añadir Miembros]
   B2 --> C2[Eliminar Miembros]
 ```
 
