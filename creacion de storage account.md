@@ -1,7 +1,7 @@
 Ah, entiendo. Puedes tener un gráfico en Mermaid que incluye tanto las opciones en inglés como sus descripciones en castellano como nodos separados. Aquí tienes el diagrama actualizado:
 
 ```mermaid
-graph TD
+graph LR
     A[Crear Storage Account] --> B1[Subscription]
     A --> B2[Resource Group]
     A --> B3[Nombre de Storage Account]
