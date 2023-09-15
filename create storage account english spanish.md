@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     A[Crear Storage Account] --> B1[Subscription<br/>Suscripción de Azure]
     A --> B2[Resource Group<br/>Grupo de recursos]
@@ -21,10 +22,10 @@ graph TD
     B6 --> D4[StorageV2]
     B6 --> D5[Storage]
     
-    B7 --> E1[Locally-redundant storage LRS<br/>Local]
-    B7 --> E2[Geo-redundant storage GRS<br/>Geo]
-    B7 --> E3[Read-access geo-redundant storage RA-GRS<br/>Geo-lectura]
-    B7 --> E4[Zone-redundant storage ZRS<br/>Zonas]
+    B7 --> E1[Locally-redundant storage (LRS)<br/>Local]
+    B7 --> E2[Geo-redundant storage (GRS)<br/>Geo]
+    B7 --> E3[Read-access geo-redundant storage (RA-GRS)<br/>Geo-lectura]
+    B7 --> E4[Zone-redundant storage (ZRS)<br/>Zonas]
     
     B8 --> F1[Hot<br/>Frecuente]
     B8 --> F2[Cool<br/>Raro]
@@ -39,3 +40,4 @@ graph TD
     B11 --> I1[Secure transfer<br/>Transfer. segura]
     B11 --> I2[Azure AD<br/>Azure AD]
     B11 --> I3[Large file shares<br/>Archivos grandes]
+```
