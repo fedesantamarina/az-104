@@ -40,10 +40,10 @@ graph TD
     B6 --> D4[StorageV2]
     B6 --> D5[Storage]
     
-    B7 --> E1[Locally-redundant storage (LRS)]
-    B7 --> E2[Geo-redundant storage (GRS)]
-    B7 --> E3[Read-access geo-redundant storage (RA-GRS)]
-    B7 --> E4[Zone-redundant storage (ZRS)]
+    B7 --> E1[Locally-redundant storage LRS]
+    B7 --> E2[Geo-redundant storage GRS]
+    B7 --> E3[Read-access geo-redundant storage RA-GRS]
+    B7 --> E4[Zone-redundant storage ZRS]
     
     E1 --> EA[Local]
     E2 --> EB[Geo]
