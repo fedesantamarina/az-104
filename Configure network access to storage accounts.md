@@ -42,7 +42,7 @@ Además del firewall, se puede configurar el acceso a través de Redes Virtuales
 
 ```mermaid
 graph TD;
-    A[Redes Virtuales (VNET)] --> B[Configuración de VNET]
+    A[Redes Virtuales VNET] --> B[Configuración de VNET]
     B --> C[Asociación con Storage Account]
 ```
 
