@@ -1,5 +1,5 @@
 ```mermaid
-graph LR
+graph LR;
     A[Crear Storage Account] --> B1[Subscription<br/>Suscripción de Azure]
     A --> B2[Resource Group<br/>Grupo de recursos]
     A --> B3[Nombre de Storage Account<br/>Nombre único]
