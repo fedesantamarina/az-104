@@ -84,6 +84,15 @@ graph LR
 
 Ahora cada nodo en inglés está conectado a su correspondiente descripción en castellano. Espero que esta versión sea de ayuda.
 
+# Seguridad por SAS
+
+## ¿Qué es un SAS?
+
+Un **Shared Access Signature (SAS)** es una forma de delegar acceso a recursos de Azure a terceros sin necesidad de compartir las claves de acceso. Un SAS es un URI que incluye un token de seguridad que le da a su portador acceso a un recurso específico en Azure durante un período de tiempo limitado.
+
+## ¿Cómo se crea un SAS?
+
+Para crear un SAS, primero debes tener una cuenta de almacenamiento de Azure. Luego, puedes generar un SAS utilizando una de las siguientes opciones:
 # Ventajas de un storage account
 
 Un Storage Account es un recurso de Azure que puede ser utilizado para almacenar una amplia variedad de datos, como archivos, imágenes, vídeos, bases de datos, etc. Algunas de las ventajas de utilizar un Storage Account son:
