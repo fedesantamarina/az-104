@@ -83,3 +83,12 @@ graph LR
 ```
 
 Ahora cada nodo en inglés está conectado a su correspondiente descripción en castellano. Espero que esta versión sea de ayuda.
+
+# Ventajas de un storage account
+
+Un Storage Account es un recurso de Azure que puede ser utilizado para almacenar una amplia variedad de datos, como archivos, imágenes, vídeos, bases de datos, etc. Algunas de las ventajas de utilizar un Storage Account son:
+
+- **Escalabilidad**: Puedes aumentar o disminuir el tamaño de tu Storage Account según tus necesidades.
+- **Durabilidad**: Los datos almacenados en un Storage Account están replicados en varios servidores, lo que garantiza que no se pierdan.
+- **Seguridad**: Puedes configurar permisos de acceso a tus datos y cifrarlos para proteger tu información.
+- **Disponibilidad**: Los datos almacenados en un Storage Account están disponibles en todo momento, lo que garantiza un acceso rápido y fiable.
