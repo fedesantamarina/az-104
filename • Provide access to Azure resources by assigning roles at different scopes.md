@@ -86,15 +86,7 @@ graph TD;
 
 Al entender cómo asignar roles en diferentes niveles, se podrá gestionar de manera efectiva el acceso a los recursos de Azure.
 
+## Conclusión
 
-# Código de Ejemplo
-Como iterar en un bucle for en Python
-```python
-
-lista = [1, 2, 3, 4, 5]
-
-for i in lista:
-    print(i)
-```
-
+La asignación de roles en diferentes ámbitos es esencial para gestionar el acceso a los recursos de Azure. Al asignar roles en el nivel de la suscripción, el grupo de recursos o el recurso individual, se puede controlar el acceso de manera efectiva y segura. Al comprender cómo asignar roles en estos diferentes ámbitos, se podrá gestionar de manera eficaz el acceso a los recursos de Azure.
 
