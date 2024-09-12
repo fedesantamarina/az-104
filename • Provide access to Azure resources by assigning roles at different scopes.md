@@ -85,3 +85,16 @@ graph TD;
 | Recurso Individual   | Azure CLI             | Granular           | Reader                 |
 
 Al entender cómo asignar roles en diferentes niveles, se podrá gestionar de manera efectiva el acceso a los recursos de Azure.
+
+
+# Código de Ejemplo
+Como iterar en un bucle for en Python
+```python
+
+lista = [1, 2, 3, 4, 5]
+
+for i in lista:
+    print(i)
+```
+
+
